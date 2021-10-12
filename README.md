@@ -1,5 +1,9 @@
 # alphanum-compare
 
+[![Node.js CI](https://github.com/tsekityam/alphanum-compare/actions/workflows/test.yml/badge.svg)](https://github.com/tsekityam/alphanum-compare/actions/workflows/test.yml)
+[![codecov](https://codecov.io/gh/tsekityam/alphanum-compare/branch/main/graph/badge.svg?token=DHFqZcVnZR)](https://codecov.io/gh/tsekityam/alphanum-compare)
+[![Known Vulnerabilities](https://snyk.io/test/github/tsekityam/alphanum-compare/badge.svg)](https://snyk.io/test/github/tsekityam/alphanum-compare)
+
 Compare function extrated from [alphanum-sort](https://github.com/trysound/alphanum-sort). It can be used as `compareFunction` in `Array.prototype.sort()`.
 
 ## Install
