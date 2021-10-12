@@ -1,5 +1,6 @@
 # alphanum-compare
 
+[![npm version](https://badge.fury.io/js/alphanum-compare.svg)](https://badge.fury.io/js/alphanum-compare)
 [![Node.js CI](https://github.com/tsekityam/alphanum-compare/actions/workflows/test.yml/badge.svg)](https://github.com/tsekityam/alphanum-compare/actions/workflows/test.yml)
 [![codecov](https://codecov.io/gh/tsekityam/alphanum-compare/branch/main/graph/badge.svg?token=DHFqZcVnZR)](https://codecov.io/gh/tsekityam/alphanum-compare)
 [![Known Vulnerabilities](https://snyk.io/test/github/tsekityam/alphanum-compare/badge.svg)](https://snyk.io/test/github/tsekityam/alphanum-compare)
@@ -27,7 +28,6 @@ console.log(["item20", "item19", "item1", "item10", "item2"].sort(compareFn));
 ```
 
 [CodeSandbox](https://codesandbox.io/s/alphanum-compare-demo-bfhln)
-
 
 ### `compareFn(a: string, b: string, opts?: { sign?: boolean }): number`
 
