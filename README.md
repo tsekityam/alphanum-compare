@@ -16,9 +16,18 @@ Compare function extrated from [alphanum-sort](https://github.com/trysound/alpha
 ```ts
 import compareFn from "alphanum-compare";
 
-const result = ["item20", "item19", "item1", "item10", "item2"].sort(compareFn);
+console.log("5".localeCompare("10")); // 1, NO GOOD
+console.log(compareFn("5", "10")); // -1, GOOD
+
+console.log(compareFn("-5", "5")); // 1, NO GOOD
+console.log(compareFn("-5", "5", { sign: true })); // -1, GOOD
+
+console.log(["item20", "item19", "item1", "item10", "item2"].sort(compareFn));
 // ['item1', 'item2', 'item10', 'item19', 'item20']
 ```
+
+[CodeSandbox](https://codesandbox.io/s/alphanum-compare-demo-bfhln)
+
 
 ### `compareFn(a: string, b: string, opts?: { sign?: boolean }): number`
 
