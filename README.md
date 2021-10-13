@@ -29,13 +29,19 @@ console.log(["item20", "item19", "item1", "item10", "item2"].sort(compareFn));
 
 [CodeSandbox](https://codesandbox.io/s/alphanum-compare-demo-bfhln)
 
-### `compareFn(a: string, b: string, opts?: { sign?: boolean }): number`
+### `compareFn(a: string, b: string, opts?: Options): number`
 
 It returns a negative value if first argument is less than second argument, zero if they're equal and a positive value otherwise.
 
 #### Options
 
-- `sign?: boolean`: Allows `+` and `-` characters before numbers. _(Default: `false`)_
+- `insensitive?: boolean`
+
+  Compares items case insensitively. _(Default: `false`)_
+
+- `sign?: boolean`
+
+  Allows `+` and `-` characters before numbers. _(Default: `false`)_
 
 ## License
 

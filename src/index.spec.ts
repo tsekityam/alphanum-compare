@@ -364,13 +364,7 @@ describe("sorting", function () {
     it(test.message, () => {
       assert.deepEqual(
         test.fixture.sort((a, b) =>
-          test.options?.insensitive ?? false
-            ? compareFn(
-                a.toString().toLowerCase(),
-                b.toString().toLowerCase(),
-                test.options
-              )
-            : compareFn(a.toString(), b.toString(), test.options)
+          compareFn(a.toString(), b.toString(), test.options)
         ),
         test.expected
       );
