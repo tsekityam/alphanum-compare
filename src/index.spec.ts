@@ -363,9 +363,7 @@ describe("sorting", function () {
   tests.forEach((test) => {
     it(test.message, () => {
       assert.deepEqual(
-        test.fixture.sort((a, b) =>
-          compareFn(a.toString(), b.toString(), test.options)
-        ),
+        test.fixture.sort((a, b) => compareFn(a, b, test.options)),
         test.expected
       );
     });

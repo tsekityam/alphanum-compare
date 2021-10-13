@@ -15,15 +15,15 @@ function isSign(code: number) {
 }
 
 function compare(
-  a: string,
-  b: string,
+  a: number | string,
+  b: number | string,
   opts?: { insensitive?: boolean; sign?: boolean }
 ): number {
   const checkCase = opts?.insensitive ?? false;
   const checkSign = opts?.sign ?? false;
 
-  const av = checkCase ? a.toLowerCase() : a;
-  const bv = checkCase ? b.toLowerCase() : b;
+  const av = checkCase ? `${a}`.toLowerCase() : `${a}`;
+  const bv = checkCase ? `${b}`.toLowerCase() : `${b}`;
   let ia = 0;
   let ib = 0;
   const ma = av.length;
