@@ -14,12 +14,20 @@ function isSign(code: number) {
   return code === minus || code === plus;
 }
 
-function compare(a: string, b: string, opts?: { sign?: boolean }): number {
+function compare(
+  a: string,
+  b: string,
+  opts?: { insensitive?: boolean; sign?: boolean }
+): number {
+  const checkCase = opts?.insensitive ?? false;
   const checkSign = opts?.sign ?? false;
+
+  const av = checkCase ? a.toLowerCase() : a;
+  const bv = checkCase ? b.toLowerCase() : b;
   let ia = 0;
   let ib = 0;
-  const ma = a.length;
-  const mb = b.length;
+  const ma = av.length;
+  const mb = bv.length;
   let ca: number, cb: number; // character code
   let za: number, zb: number; // leading zero count
   let na: number, nb: number; // number length
@@ -28,8 +36,8 @@ function compare(a: string, b: string, opts?: { sign?: boolean }): number {
   let bias: number;
 
   while (ia < ma && ib < mb) {
-    ca = a.charCodeAt(ia);
-    cb = b.charCodeAt(ib);
+    ca = av.charCodeAt(ia);
+    cb = bv.charCodeAt(ib);
     za = zb = 0;
     na = nb = 0;
     sa = sb = true;
@@ -38,16 +46,16 @@ function compare(a: string, b: string, opts?: { sign?: boolean }): number {
     // skip over leading spaces
     while (isWhitespace(ca)) {
       ia += 1;
-      ca = a.charCodeAt(ia);
+      ca = av.charCodeAt(ia);
     }
     while (isWhitespace(cb)) {
       ib += 1;
-      cb = b.charCodeAt(ib);
+      cb = bv.charCodeAt(ib);
     }
 
     // skip and save sign
     if (checkSign) {
-      ta = a.charCodeAt(ia + 1);
+      ta = av.charCodeAt(ia + 1);
       if (isSign(ca) && isDigit(ta)) {
         if (ca === minus) {
           sa = false;
@@ -55,7 +63,7 @@ function compare(a: string, b: string, opts?: { sign?: boolean }): number {
         ia += 1;
         ca = ta;
       }
-      tb = b.charCodeAt(ib + 1);
+      tb = bv.charCodeAt(ib + 1);
       if (isSign(cb) && isDigit(tb)) {
         if (cb === minus) {
           sb = false;
@@ -85,12 +93,12 @@ function compare(a: string, b: string, opts?: { sign?: boolean }): number {
     while (ca === zero) {
       za += 1;
       ia += 1;
-      ca = a.charCodeAt(ia);
+      ca = av.charCodeAt(ia);
     }
     while (cb === zero) {
       zb += 1;
       ib += 1;
-      cb = b.charCodeAt(ib);
+      cb = bv.charCodeAt(ib);
     }
 
     // count numbers
@@ -113,12 +121,12 @@ function compare(a: string, b: string, opts?: { sign?: boolean }): number {
       if (isDigit(ca)) {
         ia += 1;
         na += 1;
-        ca = a.charCodeAt(ia);
+        ca = av.charCodeAt(ia);
       }
       if (isDigit(cb)) {
         ib += 1;
         nb += 1;
-        cb = b.charCodeAt(ib);
+        cb = bv.charCodeAt(ib);
       }
     }
 
