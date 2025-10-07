@@ -26,3 +26,7 @@ jobs:
       - run: yarn
       - run: yarn lint
       - run: yarn test
+      - name: Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          github-token: ${{ secrets.CODECOV_TOKEN }}
