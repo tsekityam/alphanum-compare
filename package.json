@@ -39,5 +39,6 @@
   "keywords": [
     "alphanumeric",
     "compare"
-  ]
+  ],
+  "packageManager": "yarn@1.22.19"
 }
