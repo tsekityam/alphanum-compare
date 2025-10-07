@@ -10,7 +10,7 @@ Compare function extrated from [alphanum-sort](https://github.com/trysound/alpha
 
 ## Install
 
-`yarn add alphanum-compare`
+`npm install alphanum-compare`
 
 ## Usage
 
