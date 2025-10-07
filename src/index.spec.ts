@@ -1,4 +1,3 @@
-import assert from "assert";
 import compareFn from "../src";
 
 describe("sorting", function () {
@@ -362,10 +361,9 @@ describe("sorting", function () {
 
   tests.forEach((test) => {
     it(test.message, () => {
-      assert.deepEqual(
-        test.fixture.sort((a, b) => compareFn(a, b, test.options)),
-        test.expected
-      );
+      expect(
+        test.fixture.sort((a, b) => compareFn(a, b, test.options))
+      ).toEqual(test.expected);
     });
   });
 });
