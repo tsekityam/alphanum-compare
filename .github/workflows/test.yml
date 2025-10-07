@@ -26,8 +26,7 @@ jobs:
       - run: yarn
       - run: yarn lint
       - run: yarn test
-      - name: Codecov
-        uses: codecov/codecov-action@v5
+      - name: Coveralls
+        uses: coverallsapp/github-action@v2
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          fail_ci_if_error: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
